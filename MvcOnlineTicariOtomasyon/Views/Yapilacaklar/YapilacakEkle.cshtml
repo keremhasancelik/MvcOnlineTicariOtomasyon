@@ -1,0 +1,18 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Yapilacaklar
+@{
+    ViewBag.Title = "YapilacakEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="my-3 mx-1">Yapılacaklar Listesi Not Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div class="col-md-6">
+        @Html.Label("Yapılacaklar Notu")
+        @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", @placeholder = "Yapılacaklar Notu" })
+        
+
+    </div>
+
+    <button class="btn btn-info my-5 " style="margin-left:11px">Kaydet</button>
+</form>
+

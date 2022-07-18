@@ -1,0 +1,52 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-4">Kargolar</h2>
+<table id="tbl1" class="mt-5 table table-hover">
+    <thead>
+        <tr>
+            <th>Personel</th>
+            <th>Alici</th>
+            <th>Takip Kodu</th>
+            <th>Tarih</th>
+            @*<th>Sil</th>
+            <th>Güncelle</th>*@
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Personel</td>
+                <td>@u.Alici</td>
+                <td>@u.TakipKodu</td>
+                <td>@Convert.ToDateTime(u.Tarih).ToString("dd/MM/yyyy")</td>
+                @*<td><a href="/Urun/UrunSil/@u.KargoDetayID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Urun/UrunGetir/@u.KargoDetayID" class="btn btn-warning">Güncelle</a></td>*@
+                <td><a href="/Kargo/KargoTakip/@u.TakipKodu" class="btn btn-warning">Detaylar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Kargo/YeniKargo/" class="btn btn-primary">Yeni Kargo Girişi</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+        $('#tbl1').dataTable({});
+
+</script>

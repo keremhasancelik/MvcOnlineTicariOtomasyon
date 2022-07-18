@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - ASP.NET Uygulamam</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Scripts/modernizr-2.8.3.js")
+</head>
+<body>
+    
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/AdminLTE-3.0.4/docs/assets/plugins/bootstrap/js/bootstrap.bundle.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

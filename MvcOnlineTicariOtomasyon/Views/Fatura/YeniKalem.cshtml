@@ -1,0 +1,23 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="my-3 mx-1">Yeni Kalem Girişi</h2>
+<br />
+<form class="form-group" method="post">
+    <div class="col-md-6">
+        @Html.LabelFor(x => x.Aciklama)
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control", @placeholder = "Açıklama" })
+        @Html.LabelFor(x => x.Miktar, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control", @placeholder = "Miktar" })
+        @Html.LabelFor(x => x.BirimFiyati, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.BirimFiyati, new { @class = "form-control", @placeholder = "Birim Fiyati" })
+        @Html.LabelFor(x => x.Tutar, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control", @placeholder = "Tutar" })
+        @Html.LabelFor(x => x.Faturaid, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.Faturaid, new { @class = "form-control", @placeholder = "Fatura ID" })
+    </div>
+    <button class="btn btn-info my-5 " style="margin-left:11px">Kaydet</button>
+</form>
+

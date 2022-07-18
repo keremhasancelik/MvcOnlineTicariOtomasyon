@@ -1,0 +1,32 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="my-4">Personel Güncelleme Sayfası</h2>
+@using (@Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.PersonelID)
+    @Html.LabelFor(x => x.PersonelAd)
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control col-md-6" })
+    @*@Html.ValidationMessageFor(x => x.PersonelAd, "", new { @style = "color:red" })*@
+    @Html.LabelFor(x => x.PersonelSoyad, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control col-md-6" })
+    @*@Html.ValidationMessageFor(x => x.PersonelSoyad, "", new { @style = "color:red" })*@
+    @Html.LabelFor(x => x.Departman, new { @class = "mt-4" })
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control mb-3 col-md-6" })
+    @*@Html.ValidationMessageFor(x => x.Departmanid, "", new { @style = "color:red" })*@
+    @Html.LabelFor(x => x.PersonelTelefon, new { @class = " mt-4" })
+    @Html.TextBoxFor(x => x.PersonelTelefon, new { @class = "form-control mb-4 col-md-6", @placeholder = "Personel Telefon" })
+    @Html.LabelFor(x => x.PersonelMail, new { @class = " mt-4" })
+    @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control mb-4 col-md-6", @placeholder = "Personel Mail" })
+    @Html.LabelFor(x => x.PersonelAdres, new { @class = " mt-4" })
+    @Html.TextBoxFor(x => x.PersonelAdres, new { @class = "form-control mb-4 col-md-6", @placeholder = "Personel Adres" })
+    @Html.LabelFor(x => x.PersonelGorsel, new { @class = "mt-4" })
+    <input class="form-control" type="file" name="PersonelGorsel" />
+    @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control col-md-6 mb-4" })*@
+    @*@Html.ValidationMessageFor(x => x.PersonelGorsel, "", new { @style = "color:red" })*@
+    <button class="btn btn-primary mt-3">Kaydet</button>
+</div>
+}

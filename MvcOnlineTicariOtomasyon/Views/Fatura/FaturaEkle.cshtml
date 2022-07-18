@@ -1,0 +1,29 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Faturalar
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="my-3 mx-1">Yeni Fatura Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div class="col-md-6">
+        @Html.LabelFor(x => x.FaturaSeriNo)
+        @Html.TextBoxFor(x => x.FaturaSeriNo, new { @class = "form-control", @placeholder = "Fatura Seri No" })
+        @Html.LabelFor(x => x.FaturaSiraNo, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.FaturaSiraNo, new { @class = "form-control", @placeholder = "Fatura Sıra No" })
+        @Html.LabelFor(x => x.VergiDairesi, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control", @placeholder = "Vergi Dairesi" })
+        @Html.LabelFor(x => x.Tarih, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control", @placeholder = "Tarih" })
+        @Html.LabelFor(x => x.Saat, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.Saat, new { @class = "form-control", @placeholder = "Saat" })
+        @Html.LabelFor(x => x.TeslimEden, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control", @placeholder = "Teslim Eden" })
+        @Html.LabelFor(x => x.TeslimAlan, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control", @placeholder = "Teslim Alan" })
+   
+    </div>
+
+    <button class="btn btn-info my-5 " style="margin-left:11px">Kaydet</button>
+</form>
+

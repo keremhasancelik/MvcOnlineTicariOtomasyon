@@ -1,0 +1,57 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+
+@model List<Cariler>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+    <br />
+    
+    <table id="tbl1" class="table table-hover mt-5">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad Soyad</th>
+                <th>Şehir</th>
+                <th>Mail</th>
+                <th>Telefon</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+                <th>Detaylar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.CariID</td>
+                    <td>@x.CariAd @x.CariSoyad</td>
+                    <td>@x.CariSehir</td>
+                    <td>@x.CariMail</td>
+                    <td>@x.CariTelefon</td>
+                    <td><a href="/Cari/CariSil/@x.CariID" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Cari/CariGetir/@x.CariID" class="btn btn-warning">Güncelle</a></td>
+                    <td><a href="/Cari/MusteriSatis/@x.CariID" class="btn btn-secondary">Satış Geçmişi</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+ <br />
+
+    <div><a href="/Cari/YeniCari/" class="btn btn-primary">Yeni Cari Ekle</a> </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+    <script>
+
+        $('#tbl1').dataTable({});
+
+    </script>

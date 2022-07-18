@@ -1,0 +1,98 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<Faturalar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="mt-5"></h2>
+<table id="tbl1" class="table table-hover mt-5">
+    <thead>
+        <tr>
+            <th>Fatura ID</th>
+            <th>Seri Sıra No</th>
+            <th>Tarih</th>
+            <th>Toplam</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+            <th>Yeni Kalem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.FaturaId</td>
+                <td>@x.FaturaSeriNo @x.FaturaSiraNo</td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy") @x.Saat</td>
+                <td>@x.Toplam ₺</td>
+                <td><a href="/Fatura/FaturaGetir/@x.FaturaId" class="btn btn-warning">Güncelle</a></td>
+                <td>
+                    <a href="/Fatura/FaturaDetay/@x.FaturaId" class="btn btn-secondary">Detaylar</a>
+                </td>
+                <td><a href="/Fatura/FaturaDetay/@x.FaturaId" class="btn btn-info">Ekle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Fatura/FaturaEkle/" class="btn btn-primary mt-4" style="">Yeni Fatura Oluştur</a>
+
+<button class="btn btn-success mt-3 mr-4 float-right"
+        data-toggle="modal" data-target="#Modal1">
+    Hızlı Bakış
+</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div style="display:inline-table" class="modal-content">
+            <div style="background-color:dimgrey;" class="modal-header">
+                <h2 style="color:white" class="modal-title">Fatura Detay</h2>
+            </div>
+            <div style="background-color:" class="modal-body">
+                <table class="table table-hover">
+                    <tr>
+                        <th>Seri Sıra No</th>
+                        <th>Vergi Dairesi</th>
+                        <th>Tarih</th>
+                        <th>Toplam</th>
+                        <th>Teslim Eden</th>
+                        <th>Teslim Alan</th>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.FaturaSeriNo @x.FaturaSiraNo</td>
+                            <td>@x.VergiDairesi</td>
+                            <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MM/yyyy") @x.Saat</td>
+                            <td>@x.Toplam ₺</td>
+                            <td>@x.TeslimEden</td>
+                            <td>@x.TeslimAlan</td>
+
+                        </tr>
+                    }
+                </table>
+              <button class="btn btn-danger" type="button" data-dismiss="modal">Kapat</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+    $('#tbl1').dataTable({});
+
+</script>
+

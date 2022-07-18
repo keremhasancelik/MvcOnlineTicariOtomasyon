@@ -1,0 +1,30 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "YeniCari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="my-3 mx-1">Yeni Cari Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <div class="col-md-6">
+        @Html.LabelFor(x => x.CariAd)
+        @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control", @placeholder = "Cari Adı" })
+        @Html.LabelFor(x => x.CariSoyad, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control", @placeholder = "Cari Soyadı" })
+        @Html.LabelFor(x => x.CariSehir, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control", @placeholder = "Cari Şehir" })
+        @Html.LabelFor(x => x.CariMail, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control mb-4", @placeholder = "Cari Mail" })
+        @Html.LabelFor(x => x.CariTelefon, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariTelefon, new { @class = "form-control mb-4", @placeholder = "Cari Telefon" })
+        @Html.LabelFor(x => x.CariMeslek, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariMeslek, new { @class = "form-control mb-4", @placeholder = "Cari Meslek" })
+        @Html.LabelFor(x => x.CariGorsel, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariGorsel, new { @class = "form-control mb-4", @placeholder = "Cari Görsel" })
+        @Html.LabelFor(x => x.CariSifre, new { @class = " mt-4" })
+        @Html.TextBoxFor(x => x.CariSifre, new { @class = "form-control mb-4", @placeholder = "Cari Şifre" })
+    </div>
+
+    <button class="btn btn-info my-2 " style="margin-left:11px">Kaydet</button>
+</form>
+

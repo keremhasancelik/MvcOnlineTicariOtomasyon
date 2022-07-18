@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Cariler
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="my-4">Cari Güncelleme Sayfası</h2>
+@using (@Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CariID)
+    @Html.LabelFor(x => x.CariAd)
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control col-md-6" })
+    @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+    @Html.LabelFor(x => x.CariSoyad, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control col-md-6" })
+    @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+    @Html.LabelFor(x => x.CariSehir, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control col-md-6" })
+    @Html.ValidationMessageFor(x => x.CariSehir, "", new { @style = "color:red" })
+    @Html.LabelFor(x => x.CariMail, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control col-md-6 mb-4" })
+    @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:red" })
+    @Html.LabelFor(x => x.CariTelefon, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.CariTelefon, new { @class = "form-control col-md-6 mb-4" })
+    @Html.LabelFor(x => x.CariMeslek, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.CariMeslek, new { @class = "form-control col-md-6 mb-4" })
+    @Html.LabelFor(x => x.CariGorsel, new { @class = "mt-4" })
+    @Html.TextBoxFor(x => x.CariGorsel, new { @class = "form-control col-md-6 mb-4" })
+    @Html.ValidationMessageFor(x => x.CariGorsel, "", new { @style = "color:red" })
+    <button class="btn btn-primary">Kaydet</button>
+</div>
+}

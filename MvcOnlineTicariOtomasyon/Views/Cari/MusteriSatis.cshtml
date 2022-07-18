@@ -1,0 +1,34 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Siniflar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "MusteriSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2 class="my-4">Müşteri Satış Hareketleri Paneli</h2>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active font-weight-bold">Cari Adı: @ViewBag.d</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Adet</th>
+        <th>Birim Fiyatı</th>
+        <th>Toplam Tutar</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+    <tr>
+        <td>@i.Urun.UrunAd</td>
+        <td>@i.Personel.PersonelAd @i.Personel.PersonelSoyad</td>
+        <td>@i.Adet</td>
+        <td>@i.Fiyat ₺</td>
+        <td>@i.ToplamTutar ₺</td>
+        <td>@Convert.ToDateTime(i.Tarih).ToString("dd/MM/yyyy")</td>
+        <td><a href="#" class="btn btn-info">Yazdır</a></td>
+    </tr>
+    }
+</table>
+

@@ -1,0 +1,73 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.CascadingSatis
+@{
+    ViewBag.Title = "YeniSatis";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+<h2 class="mt-4 my-4">Yeni Satış Sayfası</h2>
+<form class="form-group" method="post">
+    @Html.Label("Kategoriler")
+    @Html.DropDownList("DrpKategori", Model.Kategoriler, "--- Kategori Seçiniz---", new { @class = "form-control mb-3 col-md-6" })
+    @Html.Label("Ürünler")
+    @Html.DropDownList("DrpUrun", Model.Urunler, "--- Ürün Seçiniz---", new { @class = "form-control mb-3 col-md-6" })
+    @*@Html.Label("Ürün")
+        @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control mb-3 col-md-6" })
+        @Html.Label("Marka")
+        @Html.DropDownListFor(x => x.Urunid, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control mb-3 col-md-6" })*@
+    @Html.Label("Cari")
+    @Html.DropDownListFor(x => x.Cariid, (List<SelectListItem>)ViewBag.dgr2, "--- Cari Seçiniz---", new { @class = "form-control mb-3 col-md-6" })
+    @Html.Label("Personel")
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.dgr3, "--- Personel Seçiniz---", new { @class = "form-control mb-3 col-md-6" })
+    @Html.LabelFor(x => x.Adet)
+    @Html.TextBoxFor(x => x.Adet, new { @class = "form-control mb-3 col-md-6" })
+    @Html.LabelFor(x => x.Fiyat)
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control mb-3 col-md-6" })
+    @Html.LabelFor(x => x.ToplamTutar)
+    @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control mb-3 col-md-6" })
+    @*@Html.TextBoxFor(x => x.Kategoriid, new { @class = "form-control mb-3 col-md-6" })*@
+    <button class="btn btn-primary">Satış Yap</button>
+</form>
+
+
+<script>
+
+    $(function () {
+
+        $('#DrpKategori').change(function () {
+
+            var id = $('#DrpKategori').val();
+
+            $.ajax({
+
+                url: '/Satis/UrunGetir',
+
+                data: { p: id },
+
+                type: "POST",
+
+                dataType: "Json",
+
+                success: function (data) {
+
+                    console.log(data);
+
+                    $('#DrpUrun').empty();
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $('#DrpUrun').append("<option value='" + data[i].Value + "'>" + data[i].Text + "</Option>");
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    });
+
+</script>
+

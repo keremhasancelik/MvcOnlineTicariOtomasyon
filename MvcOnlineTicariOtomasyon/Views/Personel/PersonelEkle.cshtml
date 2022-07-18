@@ -1,0 +1,41 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Siniflar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+
+<h2 class="my-3 mx-1">Yeni Personel Sayfası</h2>
+<br />
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        <div class="col-md-6">
+            @Html.LabelFor(x => x.PersonelAd)
+            @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control", @placeholder = "Personel Adı" })
+            @Html.LabelFor(x => x.PersonelSoyad, new { @class = " mt-4" })
+            @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control", @placeholder = "Personel Soyadı" })
+            @Html.LabelFor(x => x.Departman, new { @class = " mt-4" })
+            @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            @*@Html.TextBoxFor(x => x.Departman.DepartmanAd, new { @class = "form-control", @placeholder = "Personel Departman" })*@
+            @Html.LabelFor(x => x.PersonelTelefon, new { @class = " mt-4" })
+            @Html.TextBoxFor(x => x.PersonelTelefon, new { @class = "form-control mb-4", @placeholder = "Personel Telefon" })
+            @Html.LabelFor(x => x.PersonelMail, new { @class = " mt-4" })
+            @Html.TextBoxFor(x => x.PersonelMail, new { @class = "form-control mb-4", @placeholder = "Personel Mail" })
+            @Html.LabelFor(x => x.PersonelAdres, new { @class = " mt-4" })
+            @Html.TextBoxFor(x => x.PersonelAdres, new { @class = "form-control mb-4", @placeholder = "Personel Adres" })
+            @Html.LabelFor(x => x.PersonelGorsel, new { @class = " mt-4" })
+            @*@Html.TextBoxFor(x => x.PersonelGorsel, new { @class = "form-control mb-4", @placeholder = "Personel Görsel" })*@
+            <input class="form-control" type="file" name="PersonelGorsel" />
+        </div>
+
+        <button class="btn btn-info my-2 " style="margin-left:11px" id="Btn1">Kaydet</button>
+        <script>
+            $('#Btn1').click(function () {
+                alert("Personel Eklendi");
+                swal("Personel Eklendi!", "success");
+            });
+        </script>
+    </form>
+}
